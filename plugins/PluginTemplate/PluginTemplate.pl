@@ -30,9 +30,9 @@ my $plugin = __PACKAGE__->new ({
 <__trans phrase="Description">
 HTMLHEREDOC
     l10n_class => "${FULLNAME}::L10N",
-    system_config_template => "$MYNAME/config.tmpl",
-    blog_config_template => "$MYNAME/config.tmpl",
-    config_template => "$MYNAME/config.tmpl",
+    system_config_template => "$VENDOR/$MYNAME/config.tmpl",
+    blog_config_template => "$VENDOR/$MYNAME/config.tmpl",
+    config_template => "$VENDOR/$MYNAME/config.tmpl",
     settings => new MT::PluginSettings ([
         [ 'name', { Default => undef, scope => 'system' } ],
         [ 'name', { Default => undef, scope => 'blog' } ],
