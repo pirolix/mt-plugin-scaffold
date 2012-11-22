@@ -39,7 +39,7 @@ HTMLHEREDOC
     ]),
     registry => {
         tags => {
-            help_url => 'http://lab.magicvox.net/trac/mt-plugins/wiki/tags/%t',
+            help_url => "http://lab.magicvox.net/trac/mt-plugins/wiki/$MYNAME#tag-%t",
             function => {
                 hoge => sub { my ($ctx, $args) = @_; },
                 hoge => "${FULLNAME}::Tags::callback_handler",
