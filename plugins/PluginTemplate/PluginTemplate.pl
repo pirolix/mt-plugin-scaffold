@@ -8,11 +8,12 @@ use strict;
 use warnings;
 use MT 5;
 
-use vars qw( $VENDOR $MYNAME $FULLNAME $VERSION );
+use vars qw( $VENDOR $MYNAME $FULLNAME $VERSION $SCHEMA_VERSION );
 $FULLNAME = join '::',
         (($VENDOR, $MYNAME) = (split /::/, __PACKAGE__)[-2, -1]);
 (my $revision = '$Rev$') =~ s/\D//g;
 $VERSION = 'v0.10'. ($revision ? ".$revision" : '');
+$SCHEMA_VERSION = 0.01_00_00;
 
 # http://www.sixapart.jp/movabletype/manual/object_reference/archives/mt_plugin.html
 use base qw( MT::Plugin );
@@ -21,7 +22,7 @@ my $plugin = __PACKAGE__->new ({
     key => $FULLNAME,
     name => $MYNAME,
     version => $VERSION,
-    schema_version => 0.10_00,
+    schema_version => $SCHEMA_VERSION,
     author_name => 'Open MagicVox.net',
     author_link => 'http://www.magicvox.net/',
     plugin_link => 'http://www.magicvox.net/archive/YYYY/MMDDhhmm/', # Blog
