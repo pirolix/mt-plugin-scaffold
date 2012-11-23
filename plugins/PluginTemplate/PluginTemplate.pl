@@ -68,12 +68,13 @@ HTMLHEREDOC
             cms => {
                 methods => {
                     $MYNAME => \&_hdlr_test_callback,
+                    $MYNAME => "${FULLNAME}::Methods::hogehoge",
                 },
             },
         },
 
         callbacks => {
-            _MyTestCallback => "${FULLNAME}::Callback::callback_handler",
+            _MyTestCallback => "${FULLNAME}::Callbacks::callback_handler",
             _MyTestCallback => sub {
                 my ($cb, $app) = @_;
 #                $app->log (__LINE__);

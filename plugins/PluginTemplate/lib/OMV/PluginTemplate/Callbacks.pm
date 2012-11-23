@@ -8,7 +8,11 @@ use strict;
 use warnings;
 use MT;
 
-sub instance { MT->component((__PACKAGE__ =~ /^(\w+::\w+)/g)[0]); }
+use vars qw( $VENDOR $MYNAME $FULLNAME );
+$FULLNAME = join '::',
+        (($VENDOR, $MYNAME) = (split /::/, __PACKAGE__)[0, 1]);
+
+sub instance { MT->component($FULLNAME); }
 
 
 
