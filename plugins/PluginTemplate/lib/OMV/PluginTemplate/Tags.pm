@@ -1,7 +1,4 @@
 package OMV::PluginTemplate::Tags;
-# <ProductName> (C) <Year> Piroli YUKARINOMIYA (Open MagicVox.net)
-# This program is distributed under the terms of the GNU General Public License, version 3.
-# This program is distributed under the terms of the GNU Lesser General Public License, version 3.
 # $Id$
 
 use strict;
