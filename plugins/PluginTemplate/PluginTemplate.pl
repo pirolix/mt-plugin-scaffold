@@ -18,6 +18,7 @@ $SCHEMA_VERSION = 0.01_00_00;
 # http://www.sixapart.jp/movabletype/manual/object_reference/archives/mt_plugin.html
 use base qw( MT::Plugin );
 my $plugin = __PACKAGE__->new ({
+    # Basic descriptions
     id => $FULLNAME,
     key => $FULLNAME,
     name => $MYNAME,
@@ -31,6 +32,8 @@ my $plugin = __PACKAGE__->new ({
 <__trans phrase="Description">
 HTMLHEREDOC
     l10n_class => "${FULLNAME}::L10N",
+
+    # Configurations
     system_config_template => "$VENDOR/$MYNAME/config.tmpl",
     blog_config_template => "$VENDOR/$MYNAME/config.tmpl",
     config_template => "$VENDOR/$MYNAME/config.tmpl",
@@ -38,6 +41,8 @@ HTMLHEREDOC
         [ 'name', { Default => undef, scope => 'system' } ],
         [ 'name', { Default => undef, scope => 'blog' } ],
     ]),
+
+    # Registry
     registry => {
         tags => {
             help_url => "http://lab.magicvox.net/trac/mt-plugins/wiki/$MYNAME#tag-%t",
@@ -67,6 +72,9 @@ HTMLHEREDOC
 
         applications => {
             cms => {
+                callbacks => {
+                    _MyTestCallback => "${FULLNAME}::Callbacks::callback_handler",
+                },
                 methods => {
                     $MYNAME => \&_hdlr_test_callback,
                     $MYNAME => "${FULLNAME}::Methods::hogehoge",
