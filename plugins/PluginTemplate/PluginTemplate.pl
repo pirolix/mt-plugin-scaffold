@@ -53,9 +53,11 @@ HTMLHEREDOC
             block => {
                 fuga => sub { my ($ctx, $args, $cond) = @_; },
                 'piyo?' => sub { my ($ctx, $args, $cond) = @_; },
+                hoge => "${FULLNAME}::Tags::callback_handler",
             },
             modifier => {
                 hogera => sub { my ($ctx, $args) = @_; },
+                hoge => "${FULLNAME}::Tags::callback_handler",
             },
         },
 
