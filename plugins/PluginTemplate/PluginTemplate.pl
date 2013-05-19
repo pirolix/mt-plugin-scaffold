@@ -8,11 +8,12 @@ use strict;
 use warnings;
 use MT 5;
 
-use vars qw( $VENDOR $MYNAME $FULLNAME $VERSION $SCHEMA_VERSION );
+use vars qw( $VENDOR $MYNAME $FULLNAME $VERSION );
 $FULLNAME = join '::',
         (($VENDOR, $MYNAME) = (split /::/, __PACKAGE__)[-2, -1]);
 (my $revision = '$Rev$') =~ s/\D//g;
 $VERSION = 'v0.10'. ($revision ? ".$revision" : '');
+use vars qw( $SCHEMA_VERSION );
 $SCHEMA_VERSION = 0.01_00_00;
 
 # http://www.sixapart.jp/movabletype/manual/object_reference/archives/mt_plugin.html
