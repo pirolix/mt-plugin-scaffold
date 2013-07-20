@@ -14,7 +14,7 @@ $FULLNAME = join '::',
 (my $revision = '$Rev$') =~ s/\D//g;
 $VERSION = 'v0.10'. ($revision ? ".$revision" : '');
 use vars qw( $SCHEMA_VERSION );
-$SCHEMA_VERSION = 0.01_00_00;
+$SCHEMA_VERSION = 0.01_000;
 
 # http://www.sixapart.jp/movabletype/manual/object_reference/archives/mt_plugin.html
 use base qw( MT::Plugin );
