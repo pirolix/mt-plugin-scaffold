@@ -1,6 +1,7 @@
 #!/bin/sh
-PWD=`pwd`
+echo "* \$Id$"
 
+PWD=`pwd`
 MT_HOME=/var/www/vhosts/test/httpdocs/mt/52
 echo "* Use MT in $MT_HOME"
 

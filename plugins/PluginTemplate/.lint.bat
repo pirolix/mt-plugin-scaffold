@@ -1,5 +1,5 @@
 @ECHO OFF
-REM $Id$
+ECHO * $Id$
 
 @SET MT_HOME="X:\Project\MovableType\src\5.12"
 echo ^* Use MT in %MT_HOME%
