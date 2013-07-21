@@ -2,7 +2,7 @@ package OMV::PluginTemplate::L10N::ja;
 # $Id$
 
 use strict;
-use base 'OMV::PluginTemplate::L10N::en_us';
+use base 'OMV::PluginTemplate::L10N';
 use vars qw( %Lexicon );
 
 %Lexicon = (
