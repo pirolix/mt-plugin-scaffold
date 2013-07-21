@@ -13,7 +13,7 @@ sub instance { MT->component($FULLNAME); }
 
 
 
-### mt:Block
+### mt:Block block tag
 sub Block {
     my ($ctx, $args, $cond) = @_;
 
@@ -22,7 +22,7 @@ sub Block {
     my $vars = $ctx->{__stash}{vars} ||= {};
 
     my $block_out;
-    while (...) {
+    while (1) {
         defined(my $out = $builder->build ($ctx, $token, {
                 %$cond,
 #                DateHeader => ( $this_day ne $last_day ),
@@ -37,14 +37,14 @@ sub Block {
     return $block_out;
 }
 
-### mt:Condition
+### mt:Condition? conditional block tag
 sub Condition {
     my ($ctx, $args) = @_;
 
     return rand(2) % 2;
 }
 
-### mt:Func
+### $mt:Func$ function tag
 sub Func {
     my ($ctx, $args) = @_;
 
