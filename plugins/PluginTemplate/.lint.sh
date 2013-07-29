@@ -23,19 +23,19 @@ find ./ -type f -name '*.pm' \
 		-I$PWD/lib \
 		{} \;
 
-echo "* Checking MT Templates ..."
-find ./tmpl -type f -name '*.tmpl' \
-	-exec perl \
-		-I$MT_HOME/extlib \
-		-I$MT_HOME/lib \
-		-I$PWD/extlib \
-		-I$PWD/lib \
-		-MMT \
-		-MMT::Template \
-		-e '$m = MT->new or die MT->errstr;' \
-		-e '($f = $ARGV[1]) =~ s/^\./$ARGV[0]/;'\
-		-e '$t = MT::Template->new_file($f);' \
-		-e 'print $t->build ? "$ARGV[1] syntax OK\n" : $t->errstr;' \
-		$PWD {} \;
-
-echo
+if [ -d ./tmpl ]; then
+	echo "* Checking MT Templates ..."
+	find ./tmpl -type f -name '*.tmpl' \
+		-exec perl \
+			-I$MT_HOME/extlib \
+			-I$MT_HOME/lib \
+			-I$PWD/extlib \
+			-I$PWD/lib \
+			-MMT \
+			-MMT::Template \
+			-e '$m = MT->new or die MT->errstr;' \
+			-e '($f = $ARGV[1]) =~ s/^\./$ARGV[0]/;'\
+			-e '$t = MT::Template->new_file($f);' \
+			-e 'print $t->build ? "$ARGV[1] syntax OK\n" : $t->errstr;' \
+			$PWD {} \;
+fi
