@@ -9,13 +9,13 @@ use vars qw( %Lexicon );
     # *.pl
     "Display the nickname and username" => "管理画面にユーザ名とニックネームを表示します",
     # Callbacks.pm
-    "" => "",
+#    "" => "",
     # Methods.pm
-    "" => "",
+#    "" => "",
     # Tags.pm
-    "" => "",
+#    "" => "",
     # config.tmpl
-    "" => "",
+#    "" => "",
 );
 
 1;
