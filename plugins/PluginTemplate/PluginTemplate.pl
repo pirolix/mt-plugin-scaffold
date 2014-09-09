@@ -11,8 +11,7 @@ use MT 5;
 use vars qw( $VENDOR $MYNAME $FULLNAME $VERSION );
 $FULLNAME = join '::',
         (($VENDOR, $MYNAME) = (split /::/, __PACKAGE__)[-2, -1]);
-(my $revision = '$Rev$') =~ s/\D//g;
-$VERSION = 'v0.10'. ($revision ? ".$revision" : '');
+$VERSION = 'v0.10.$WCREV$';
 use vars qw( $SCHEMA_VERSION );
 $SCHEMA_VERSION = 0.01_000;
 
