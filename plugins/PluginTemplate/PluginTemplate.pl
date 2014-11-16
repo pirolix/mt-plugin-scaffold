@@ -11,7 +11,8 @@ use MT 5;
 use vars qw( $VENDOR $MYNAME $FULLNAME $VERSION );
 $FULLNAME = join '::',
         (($VENDOR, $MYNAME) = (split /::/, __PACKAGE__)[-2, -1]);
-$VERSION = 'v0.10.$WCREV$';
+( my $revision = '$Rev$' ) =~ s/\D//g;
+$VERSION = 'v0.11'. ( $revision ? ".$revision" : '123456' );
 use vars qw( $SCHEMA_VERSION );
 $SCHEMA_VERSION = 0.01_000;
 
@@ -38,8 +39,8 @@ HTMLHEREDOC
     blog_config_template => "$VENDOR/$MYNAME/config.tmpl",
     config_template => "$VENDOR/$MYNAME/config.tmpl",
     settings => new MT::PluginSettings ([
-        [ 'name', { Default => undef, scope => 'system' } ],
-        [ 'name', { Default => undef, scope => 'blog' } ],
+        [ 'name', { scope => 'system',  Default => undef } ],
+        [ 'name', { scope => 'blog',    Default => undef } ],
     ]),
 
     # Registry
@@ -47,16 +48,16 @@ HTMLHEREDOC
         tags => {
             help_url => "http://lab.magicvox.net/trac/mt-plugins/wiki/$MYNAME#tag-%t",
             function => {
-                hoge => sub { my ($ctx, $args) = @_; },
+                hoge => sub { my($ctx, $args ) = @_; },
                 hoge => "${FULLNAME}::Tags::callback_handler",
             },
             block => {
-                fuga => sub { my ($ctx, $args, $cond) = @_; },
-                'piyo?' => sub { my ($ctx, $args, $cond) = @_; },
+                fuga => sub { my( $ctx, $args, $cond ) = @_; },
+                'piyo?' => sub { my( $ctx, $args, $cond ) = @_; },
                 hoge => "${FULLNAME}::Tags::callback_handler",
             },
             modifier => {
-                hogera => sub { my ($ctx, $args) = @_; },
+                hogera => sub { my( $str, $arg, $ctx ) = @_; },
                 hoge => "${FULLNAME}::Tags::callback_handler",
             },
         },
